@@ -11,3 +11,9 @@
   end
   p "ITEM #{i} : créé"
 end
+
+Admin.create(
+  email: 'mvc@yopmail.com',
+  password: 'password',
+  password_confirmation: 'password',
+)

@@ -28,5 +28,8 @@ spec/examples.txt
 # Ignore master key for decrypting credentials and more.
 /config/master.key
 
+# VS Code not interesting on GitHub
+.vscode/settings.json
+
 # Ignore application configuration
 /config/application.yml
