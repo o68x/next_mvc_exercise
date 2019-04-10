@@ -33,6 +33,7 @@ class Item < ApplicationRecord
   end
 
   def self.average_price
+    # TODO: use DB function here -> @zaratan
     all.map(&:price).sum / count
   end
 end

@@ -29,7 +29,7 @@ group :development, :test do
   gem 'pry-byebug', '~> 3.6'
   gem 'rspec-rails', '~> 3.7', '>= 3.7.2'
   gem 'sandi_meter', '~> 1.2'
-  # TODO: added by me
+  # REF: added by me
   gem 'awesome_print'
   gem 'pry-rails'
 end
