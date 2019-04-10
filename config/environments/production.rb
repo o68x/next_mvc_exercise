@@ -95,8 +95,8 @@ Rails.application.configure do
   # MAILER
   config.action_mailer.default_url_options = { :host => ENV["HOST"] }
   ActionMailer::Base.smtp_settings = {
-    password: Figaro.env.sendgrid_pwd,
-    user_name: Figaro.env.sendgrid_login,
+    password: ENV["SENDGRID_LOGIN"],
+    user_name: ENV["SENDGRID_KEY"],
     domain: 'nextmvc.com',
     address: 'smtp.sendgrid.net',
     port: 587,
