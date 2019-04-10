@@ -163,6 +163,3 @@ Metrics/ParameterLists:
 
 Metrics/PerceivedComplexity:
   Enabled: false
-
-Style/FrozenStringLiteralComment:
-  Enabled: false
