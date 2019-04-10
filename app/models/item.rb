@@ -34,6 +34,14 @@ class Item < ApplicationRecord
 
   def self.average_price
     # TODO: use DB function here -> @zaratan
-    all.map(&:price).sum / count
+    # all.map(:price).sum / count
+    sum_discounted_items = 0
+
+    sum_non_discounted_items = where(has_discount: false).sum(:original_price)
+
+    discounted_items = where(has_discount: true).pluck(:original_price, :discount_percentage)
+    discounted_items.each { |i| sum_discounted_items += i[0] - i[0] * i[1] / 100 }
+
+    (sum_non_discounted_items + sum_discounted_items) / count
   end
 end
