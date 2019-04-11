@@ -1,12 +1,7 @@
 <main class="content">
   <div class="container-fluid p-0">
 
-    <h1 class="h3 mb-3">Items</h1>
-
-    <h3>Emails</h3>
-    <% @emails.each do |email| %>
-      <p><%= email %></p>
-    <% end %>
+    <h3>Users</h3>
 
     <div class="row">
       <div class="col-12">
@@ -16,15 +11,13 @@
             <table class="table table-striped table-hover">
               <thead>
                 <tr>
-                  <th>Prix de départ</th>
-                  <th>Pourcentage de remise</th>
-                  <th>Prix</th>
+                  <th>Email</th>
                   <th></th>
                 </tr>
               </thead>
               <tbody>
-                <% @items.each do |item| %>
-                  <%= render partial: "administration/items/table_row", locals: {item: item} %>
+                <% @profiles.each do |profile| %>
+                  <%= render partial: "administration/profiles/table_row", locals: {profile: profile} %>
                 <% end %>
               </tbody>
             </table>

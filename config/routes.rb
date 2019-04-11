@@ -3,7 +3,7 @@
 Rails.application.routes.draw do
   devise_for :admins
   devise_for :users
-  root 'administration/items#index'
+  root 'home#landing_page'
 
   get '/home', to: 'home#landing_page'
 

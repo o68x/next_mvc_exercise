@@ -1,8 +1,12 @@
 # frozen_string_literal: true
 
 module Administration
-  class ProfilesController < ApplicationController
-    before_action :set_profile
+  class ProfilesController < AdministrationController
+    before_action :set_profile, only: [:send_email]
+
+    def index
+      @profiles = Profile.all
+    end
 
     def show; end
 
