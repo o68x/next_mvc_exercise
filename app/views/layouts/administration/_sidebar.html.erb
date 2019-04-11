@@ -1,5 +1,5 @@
 <nav class="sidebar sidebar-sticky">
-	<div class="sidebar-content">
+	<div class="sidebar-content" style="padding-top: 70px;">
 
 		<%= link_to root_path, class: "sidebar-brand" do %>
       <p class="align-middle text-center">
@@ -12,12 +12,20 @@
 			<li class="sidebar-item">
 		    <%= link_to administration_items_path, class: "sidebar-link" do %>
           <span class="align-middle">
-          	Items
+          	Users
           </span>
         <% end %>
 			</li>
 
-		</ul>
+			<li class="sidebar-item">
+					<%= link_to administration_items_path, class: "sidebar-link" do %>
+						<span class="align-middle">
+							Items
+						</span>
+					<% end %>
+				</li>
+
+			</ul>
 
 	</div>
 </nav>

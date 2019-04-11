@@ -10,15 +10,14 @@
   </head>
 
   <body>
+          <%= render partial: "layouts/administration/navbar" %>
     <div class="wrapper">
-
       <div class="d-flex">
+          <%= render partial: "layouts/administration/sidebar" %>
         
-        <%= render partial: "layouts/administration/sidebar" %>
         
         <div class="main">
           
-          <%= render partial: "layouts/administration/navbar" %>
           <%= render "layouts/shared/flash_messages" %>
 
           <main class="content">
