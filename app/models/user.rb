@@ -30,7 +30,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
          :confirmable
-
+  after_create :create_profile
   has_one :profile, dependent: :destroy
 
   def send_devise_notification(notification, *args)
