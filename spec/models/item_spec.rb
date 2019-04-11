@@ -48,4 +48,19 @@ RSpec.describe Item, type: :model do
       it { expect(item.price).to eq(80.00) }
     end
   end
+
+  describe '.average_price' do
+    # let(:item) { build(:item_without_discount, original_price: 100.00) }
+    # let(:item_discount) { build(:item_with_discount, original_price: 100.00, discount_percentage: 20) }
+    let(:item1) { create(:item_with_discount, original_price: 100.00, discount_percentage: 20) }
+    let(:item2) { create(:item_without_discount, original_price: 100.00) }
+
+    xit { expect(Item.average_price).to eq(90.00) }
+  end
+
+  describe '.apply_discount' do
+    let(:item) { build(:item_with_discount, original_price: 100.00, discount_percentage: 20) }
+
+    it { expect(Item.apply_discount(item.original_price, item.discount_percentage)).to eq(80.00) }
+  end
 end
