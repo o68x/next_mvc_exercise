@@ -11,12 +11,14 @@
 
   <body>
     <div class="wrapper">
-      <div class="d-flex">
-    
-        <%= render partial: "layouts/administration/sidebar" %>
 
+      <div class="d-flex">
+        
+        <%= render partial: "layouts/administration/sidebar" %>
+        
         <div class="main">
-      
+          
+          <%= render partial: "layouts/administration/navbar" %>
           <%= render "layouts/shared/flash_messages" %>
 
           <main class="content">
