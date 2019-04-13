@@ -38,3 +38,4 @@ spec/examples.txt
 /coverage/*
 tmux-client-13253.log
 sandi_meter/*
+config/skylight.yml
