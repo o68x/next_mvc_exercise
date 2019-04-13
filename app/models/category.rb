@@ -4,18 +4,17 @@
 #
 # Table name: categories
 #
-#  id                 :bigint(8)        not null, primary key
-#  categorizable_type :string
-#  name               :string
-#  created_at         :datetime         not null
-#  updated_at         :datetime         not null
-#  categorizable_id   :bigint(8)
-#
-# Indexes
-#
-#  index_categories_on_categorizable_type_and_categorizable_id  (categorizable_type,categorizable_id)
+#  id         :bigint(8)        not null, primary key
+#  name       :string
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
 #
 
 class Category < ApplicationRecord
-  belongs_to :categorizable, polymorphic: true
+  has_many :categorizings,
+           dependent: :destroy
+
+  has_many :items,
+           through: :categorizings,
+           dependent: :destroy
 end
