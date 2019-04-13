@@ -21,6 +21,7 @@ gem 'puma', '~> 3.11'
 gem 'rails', '~> 5.2.1', '>= 5.2.1.1'
 gem 'sass-rails', '~> 5.0'
 gem 'sidekiq', '~> 5.2.2'
+gem 'skylight'
 gem 'turbolinks', '~> 5'
 gem 'uglifier', '>= 1.3.0'
 
@@ -41,6 +42,7 @@ group :development do
   gem 'rubocop-rspec', require: false
   gem 'spring', '~> 2.0', '>= 2.0.2'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'web-console'
 end
 
 group :test do

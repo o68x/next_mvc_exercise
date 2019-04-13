@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_09_161747) do
+ActiveRecord::Schema.define(version: 2019_04_13_104753) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,12 +31,28 @@ ActiveRecord::Schema.define(version: 2019_04_09_161747) do
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
   end
 
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "categorizings", force: :cascade do |t|
+    t.bigint "category_id"
+    t.bigint "item_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_categorizings_on_category_id"
+    t.index ["item_id"], name: "index_categorizings_on_item_id"
+  end
+
   create_table "items", force: :cascade do |t|
     t.float "original_price", null: false
     t.boolean "has_discount", default: false
     t.integer "discount_percentage", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "name", default: "Item", null: false
   end
 
   create_table "profiles", force: :cascade do |t|
@@ -63,5 +79,7 @@ ActiveRecord::Schema.define(version: 2019_04_09_161747) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "categorizings", "categories"
+  add_foreign_key "categorizings", "items"
   add_foreign_key "profiles", "users"
 end

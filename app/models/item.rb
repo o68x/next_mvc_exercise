@@ -5,14 +5,23 @@
 # Table name: items
 #
 #  id                  :bigint(8)        not null, primary key
-#  original_price      :float            not null
-#  has_discount        :boolean          default(FALSE)
 #  discount_percentage :integer          default(0)
+#  has_discount        :boolean          default(FALSE)
+#  name                :string           default("Item"), not null
+#  original_price      :float            not null
 #  created_at          :datetime         not null
 #  updated_at          :datetime         not null
 #
 
 class Item < ApplicationRecord
+  # TODO: what value for dependent here? rubocop insists on declaring that option
+  has_many :categorizings,
+           dependent: :destroy
+
+  has_many :categories,
+           through: :categorizings,
+           dependent: :destroy
+
   validates :original_price,
             presence: true,
             numericality: { greater_than: 0 }
