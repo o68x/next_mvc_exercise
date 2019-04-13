@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
-Category.create!(name: "That's fine")
+Category.create!(name: "First")
 
-Category.create!(name: "Well")
+Category.create!(name: "Second")
 
-Category.create!(name: "Just a category")
+Category.create!(name: "Last")
 
 1.upto(20) do |i|
   item = Item.create!(
@@ -17,11 +17,21 @@ Category.create!(name: "Just a category")
     item.discount_percentage = (1..10).to_a.sample * 5
     item.save
   end
-  p "ITEM #{i} : créé"
+  p "Item #{i} créé"
 end
 
-Admin.create(
-  email: 'mvc@yopmail.com',
-  password: 'password',
+admin = Admin.new(
+  email:                 'mvc@yopmail.com',
+  password:              'password',
   password_confirmation: 'password',
 )
+admin.skip_confirmation!
+admin.save!
+
+user = User.new(
+  email:                 'user@yopmail.com',
+  password:              'password',
+  password_confirmation: 'password',
+)
+user.skip_confirmation!
+user.save!
