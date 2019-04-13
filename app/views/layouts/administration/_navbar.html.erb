@@ -1,5 +1,4 @@
 <nav id="top" class="navbar justify-content-between sticky-top navbar-expand-md navbar-light bg-light">
-<!-- TODO: flex justify; admin auth -->
   <a class="navbar-brand h1" href="/">NextMVC - ADMIN</a>
   <div><%= current_admin.email %></div>
   <%= link_to "Log out", destroy_admin_session_path, method: :delete, class: "btn btn-primary" %>
