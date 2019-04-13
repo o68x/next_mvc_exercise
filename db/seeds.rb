@@ -21,17 +21,17 @@ Category.create!(name: "Last")
 end
 
 admin = Admin.new(
-  email:                 'mvc@yopmail.com',
-  password:              'password',
-  password_confirmation: 'password',
+  email: 'mvc@yopmail.com',
+  password: 'password',
+  password_confirmation: 'password'
 )
 admin.skip_confirmation!
 admin.save!
 
 user = User.new(
-  email:                 'user@yopmail.com',
-  password:              'password',
-  password_confirmation: 'password',
+  email: 'user@yopmail.com',
+  password: 'password',
+  password_confirmation: 'password'
 )
 user.skip_confirmation!
 user.save!
