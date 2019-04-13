@@ -15,7 +15,12 @@
 
 class Item < ApplicationRecord
   # TODO: what value for dependent here? rubocop insists on declaring that option
-  has_many :categories, as: :categorizable, dependent: :nullify
+  has_many :categorizings,
+           dependent: :destroy
+
+  has_many :categories,
+           through: :categorizings,
+           dependent: :destroy
 
   validates :original_price,
             presence: true,

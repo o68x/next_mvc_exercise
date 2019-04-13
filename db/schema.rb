@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_13_093115) do
+ActiveRecord::Schema.define(version: 2019_04_13_104753) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,11 +33,17 @@ ActiveRecord::Schema.define(version: 2019_04_13_093115) do
 
   create_table "categories", force: :cascade do |t|
     t.string "name"
-    t.string "categorizable_type"
-    t.bigint "categorizable_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["categorizable_type", "categorizable_id"], name: "index_categories_on_categorizable_type_and_categorizable_id"
+  end
+
+  create_table "categorizings", force: :cascade do |t|
+    t.bigint "category_id"
+    t.bigint "item_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_categorizings_on_category_id"
+    t.index ["item_id"], name: "index_categorizings_on_item_id"
   end
 
   create_table "items", force: :cascade do |t|
@@ -73,5 +79,7 @@ ActiveRecord::Schema.define(version: 2019_04_13_093115) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "categorizings", "categories"
+  add_foreign_key "categorizings", "items"
   add_foreign_key "profiles", "users"
 end

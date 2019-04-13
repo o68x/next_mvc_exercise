@@ -1,7 +1,12 @@
 # frozen_string_literal: true
 
-1.upto(10) do |i|
+Category.create!(name: "Good")
+
+Category.create!(name: "Bad")
+
+1.upto(20) do |i|
   item = Item.create!(
+    name: Faker::Artist.name,
     original_price: Faker::Number.decimal(2),
     has_discount: Faker::Boolean.boolean
   )
