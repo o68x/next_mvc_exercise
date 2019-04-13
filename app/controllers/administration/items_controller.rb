@@ -11,11 +11,16 @@ module Administration
       # TODO: Flash messages not showing on update
       @item = Item.find(params[:id])
       if @item.update(update_discount)
-        flash[:success] = "L'item a été mis à jour !"
-        redirect_to administration_items_path
+        respond_to do |format|
+          format.html {
+            flash[:success] = "L'item a été mis à jour !"
+            redirect_to administration_items_path
+          }
+          format.js
+        end
       else
         flash[:error] = "Problème, essayez encore !"
-        render administration_items_path
+        redirect_to administration_items_path
       end
     end
 

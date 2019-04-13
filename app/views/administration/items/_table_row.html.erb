@@ -1,4 +1,4 @@
-<%= form_for item, url: administration_item_url(item.id), html: {class: ""} do |f| %>
+<%= form_for item, url: administration_item_url(item.id), html: {class: "", remote: true } do |f| %>
   <tr>
     <td> <%= item.name %></td>
     <td> <%= item.original_price %></td>
@@ -9,7 +9,7 @@
     </td>
     <td> <%= item.price %></td>
     <td>
-      <%= f.submit "Modifier", class: "btn btn-secondary"  %>
+      <%= f.submit "Modifier", class: "btn btn-secondary" %>
     </td>
   </tr>
 <% end %>
